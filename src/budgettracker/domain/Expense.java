@@ -7,14 +7,14 @@ import java.util.Date;
 public class Expense {
 
     private Date date;
-    private enum columns{
+    private enum Category{
       Groceries, Nepal, HomeBills, CreditCard, Gym, Subscription, EatingOut, Shopping, Fuel, Miscellaneous, Savings;
     }
-    private columns category;
+    private Category category;
     private Text description;
     private int amount;
 
-    public Expense(Date date, columns category, Text description, int amount){
+    public Expense(Date date, Category category, Text description, int amount){
         this.date = date;
         this.category = category;
         this.description = description;
@@ -28,11 +28,11 @@ public class Expense {
         this.date = date;
     }
 
-    public columns getCategory(){
+    public Category getCategory(){
         return category;
     }
 
-    public void setCategory(columns category){
+    public void setCategory(Category category){
         this.category = category;
     }
 
