@@ -2,29 +2,30 @@ package budgettracker.domain;
 
 import org.w3c.dom.Text;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Expense {
 
-    private Date date;
-    private enum Category{
+    private LocalDate date;
+    protected enum Category{
       Groceries, Nepal, HomeBills, CreditCard, Gym, Subscription, EatingOut, Shopping, Fuel, Miscellaneous, Savings;
     }
     private Category category;
     private Text description;
     private int amount;
 
-    public Expense(Date date, Category category, Text description, int amount){
+    public Expense(LocalDate date, Category category, Text description, int amount){
         this.date = date;
         this.category = category;
         this.description = description;
         this.amount = amount;
     }
 
-    public Date getDate(){
+    public LocalDate getDate(){
         return date;
     }
-    public void setDate(Date date){
+    public void setDate(LocalDate date){
         this.date = date;
     }
 
@@ -52,7 +53,4 @@ public class Expense {
         this.amount = amount;
     }
 
-    public String getAllExpenses(){
-        return "Date: "+date +"Category: "+category+"Amount: "+amount+"Description: "+description;
-    }
 }
