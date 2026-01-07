@@ -8,14 +8,16 @@ import java.time.LocalDate;
 public class Expense {
 
     private LocalDate date;
-    protected enum Category{
-      Groceries, Nepal, HomeBills, CreditCard, Gym, Subscription, EatingOut, Shopping, Fuel, Miscellaneous, Savings;
+
+
+    public enum Category{
+      Groceries, Nepal, HomeBills, CreditCard, Gym, Subscription, EatingOut, Shopping, Fuel, Miscellaneous, Savings
     }
     private Category category;
-    private Text description;
+    private String description;
     private int amount;
 
-    public Expense(LocalDate date, Category category, Text description, int amount){
+    public Expense(LocalDate date, Category category, String description, int amount){
         this.date = date;
         this.category = category;
         this.description = description;
@@ -37,11 +39,11 @@ public class Expense {
         this.category = category;
     }
 
-    public Text getDescription(){
+    public String getDescription(){
         return description;
     }
 
-    public void setDescription(Text description){
+    public void setDescription(String description){
         this.description = description;
     }
 

@@ -1,18 +1,16 @@
 package budgettracker.service;
 
 import budgettracker.domain.Expense;
-import org.w3c.dom.Text;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class Calculation extends Expense {
 
-    public Calculation(LocalDate date, Expense.Category category, Text description, int amount) {
-        super(date, category, description, amount);
+public class Calculation {
+    ArrayList<Expense> CalculateTotal = new ArrayList<>();
+    static Expense total = new Expense(LocalDate.now(), Expense.Category.Groceries,"Tester",70);
+    public static void tester(){
+        System.out.println(total);
+    }
     }
 
-    public int totalDailyExpense(LocalDate date) {
-
-        }
-    }
-}
