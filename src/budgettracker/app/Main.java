@@ -6,8 +6,7 @@ public class Main {
     public void main(String[] Args){
 
         System.out.println("Hello");
-        Calculation.tester();
-
-
+        Calculation obj2 = new Calculation();
+        obj2.addExpense();
     }
 }

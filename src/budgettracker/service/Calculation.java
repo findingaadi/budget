@@ -8,9 +8,19 @@ import java.util.ArrayList;
 
 public class Calculation {
     ArrayList<Expense> CalculateTotal = new ArrayList<>();
-    static Expense total = new Expense(LocalDate.now(), Expense.Category.Groceries,"Tester",70);
-    public static void tester(){
-        System.out.println(total);
+    String desc = "tester1";
+    double amt = 25.5;
+
+    public void addExpense(){
+        Expense Obj1 = new Expense(LocalDate.now(), Expense.Category.Groceries, desc, amt);
+        CalculateTotal.add(Obj1);
+
+        for (Expense expense : CalculateTotal) {
+            System.out.println(expense);
+        }
+
     }
-    }
+
+}
+
 

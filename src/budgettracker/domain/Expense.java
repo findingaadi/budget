@@ -1,7 +1,5 @@
 package budgettracker.domain;
 
-import org.w3c.dom.Text;
-
 import java.time.LocalDate;
 
 
@@ -15,9 +13,9 @@ public class Expense {
     }
     private Category category;
     private String description;
-    private int amount;
+    private double amount;
 
-    public Expense(LocalDate date, Category category, String description, int amount){
+    public Expense(LocalDate date, Category category, String description, double amount){
         this.date = date;
         this.category = category;
         this.description = description;
@@ -47,12 +45,11 @@ public class Expense {
         this.description = description;
     }
 
-    public int getAmount(){
+    public double getAmount(){
         return amount;
     }
 
-    public void setAmount(int amount){
+    public void setAmount(double amount){
         this.amount = amount;
     }
-
 }
