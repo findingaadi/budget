@@ -52,4 +52,8 @@ public class Expense {
     public void setAmount(double amount){
         this.amount = amount;
     }
+    public String getExpense(){
+        return "Amount: "+getAmount()+" | "+"Date: "+getDate()+" | "+"Category: "+getCategory()+" | "+"Description: "+getDescription();
+    }
+
 }

@@ -16,9 +16,8 @@ public class Calculation {
         CalculateTotal.add(Obj1);
 
         for (Expense expense : CalculateTotal) {
-            System.out.println(expense);
+            System.out.println(expense.getExpense());
         }
-
     }
 
 }
