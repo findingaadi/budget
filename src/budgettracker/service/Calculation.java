@@ -4,21 +4,28 @@ import budgettracker.domain.Expense;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class Calculation {
-    ArrayList<Expense> CalculateTotal = new ArrayList<>();
-    String desc = "tester1";
-    double amt = 25.5;
+    ArrayList<Expense> kharcha = new ArrayList<>();
+    Scanner input = new Scanner(System.in);
+
 
     public void addExpense(){
-        Expense Obj1 = new Expense(LocalDate.now(), Expense.Category.Groceries, desc, amt);
-        CalculateTotal.add(Obj1);
+        System.out.println("Description?: ");
+        String desc = input.nextLine();
 
-        for (Expense expense : CalculateTotal) {
+        System.out.println("Amount?: ");
+        double amt = input.nextDouble();
+
+        Expense Obj1 = new Expense(LocalDate.now(), Expense.Category.Groceries, desc, amt);
+        kharcha.add(Obj1);
+        for (Expense expense : kharcha) {
             System.out.println(expense);
         }
     }
+
 
 }
 
