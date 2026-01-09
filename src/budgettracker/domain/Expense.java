@@ -52,8 +52,10 @@ public class Expense {
     public void setAmount(double amount){
         this.amount = amount;
     }
-    public String getExpense(){
-        return "Amount: "+getAmount()+" | "+"Date: "+getDate()+" | "+"Category: "+getCategory()+" | "+"Description: "+getDescription();
+
+    //to override the default toString() method when print statement is used
+    public String toString(){
+        return "Amount: "+amount+" | "+"Date: "+date+" | "+"Category: "+category+" | "+"Description: "+description;
     }
 
 }
