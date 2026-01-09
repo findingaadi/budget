@@ -32,56 +32,21 @@ public class Calculation {
         System.out.println("10. Savings");
 
         int i = input.nextInt();
-        Expense.Category e;
-        switch (i){
-            case 1:
-                e = Expense.Category.Groceries;
-            break;
+        Expense.Category e = switch (i) {
+            case 1 -> Expense.Category.Groceries;
+            case 2 -> Expense.Category.Nepal;
+            case 3 -> Expense.Category.HomeBills;
+            case 4 -> Expense.Category.CreditCard;
+            case 5 -> Expense.Category.Subscription;
+            case 6 -> Expense.Category.EatingOut;
+            case 7 -> Expense.Category.Shopping;
+            case 8 -> Expense.Category.Fuel;
+            case 9 -> Expense.Category.Miscellaneous;
+            case 10 -> Expense.Category.Savings;
+            default -> null;
+        };
 
-            case 2:
-                e = Expense.Category.Nepal;
-            break;
-
-            case 3:
-                e = Expense.Category.HomeBills;
-            break;
-
-            case 4:
-                e = Expense.Category.CreditCard;
-            break;
-
-            case 5:
-                e = Expense.Category.Subscription;
-            break;
-
-            case 6:
-                e = Expense.Category.EatingOut;
-            break;
-
-            case 7:
-                e = Expense.Category.Shopping;
-            break;
-
-            case 8:
-                e = Expense.Category.Fuel;
-            break;
-
-            case 9:
-                e = Expense.Category.Miscellaneous;
-            break;
-
-            case 10:
-                e = Expense.Category.Savings;
-            break;
-
-        }
-
-
-
-
-        //
-
-        Expense Obj1 = new Expense(LocalDate.now(), Expense.Category.Groceries, desc, amt);
+        Expense Obj1 = new Expense(LocalDate.now(), e, desc, amt);
         kharcha.add(Obj1);
         for (Expense expense : kharcha) {
             System.out.println(expense);
