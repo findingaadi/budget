@@ -12,6 +12,13 @@ public class Calculation {
     Scanner input = new Scanner(System.in);
 
 
+    public void displayAllExpense() {
+        int j = 0;
+        for (Expense expense : kharcha) {
+            System.out.println(++j+")"+expense);
+        }
+    }
+
     public void addExpense(){
         System.out.println("Description?: ");
         String desc = input.nextLine();
@@ -48,12 +55,9 @@ public class Calculation {
 
         Expense Obj1 = new Expense(LocalDate.now(), e, desc, amt);
         kharcha.add(Obj1);
-        for (Expense expense : kharcha) {
-            System.out.println(expense);
+        displayAllExpense();
         }
-    }
-
-
 }
+
 
 
