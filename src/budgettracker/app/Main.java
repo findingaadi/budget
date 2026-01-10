@@ -8,5 +8,6 @@ public class Main {
         System.out.println("Hello");
         Calculation obj2 = new Calculation();
         obj2.addExpense();
+        obj2.deleteExpense();
     }
 }

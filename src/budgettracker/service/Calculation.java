@@ -57,6 +57,16 @@ public class Calculation {
         kharcha.add(Obj1);
         displayAllExpense();
         }
+
+    public void deleteExpense(){
+        System.out.println("Which expense would you like to delete? ");
+        displayAllExpense();
+
+        int l = input.nextInt();
+        kharcha.remove(l-1);
+        displayAllExpense();
+    }
+
 }
 
 
