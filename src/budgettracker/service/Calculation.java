@@ -54,7 +54,15 @@ public class Calculation {
         };
 
         Expense Obj1 = new Expense(LocalDate.now(), e, desc, amt);
+        Expense Obj2 = new Expense(LocalDate.now(), e, "autoTest", 40.0);
+        Expense Obj3 = new Expense(LocalDate.now(), e, "autoTest", 50.0);
+        Expense Obj4 = new Expense(LocalDate.now(), e, "autoTest", 60.0);
+        Expense Obj5 = new Expense(LocalDate.now(), e, "autoTest", 70.0);
         kharcha.add(Obj1);
+        kharcha.add(Obj2);
+        kharcha.add(Obj3);
+        kharcha.add(Obj4);
+        kharcha.add(Obj5);
         displayAllExpense();
         }
 
