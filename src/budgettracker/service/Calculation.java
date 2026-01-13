@@ -11,6 +11,9 @@ public class Calculation {
     ArrayList<Expense> kharcha = new ArrayList<>();
     Scanner input = new Scanner(System.in);
 
+    public ArrayList<Expense> getKharcha(){
+        return kharcha;
+    }
 
     public void displayAllExpense() {
         int j = 0;

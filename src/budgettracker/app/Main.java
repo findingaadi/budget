@@ -8,8 +8,8 @@ public class Main {
 
         System.out.println("Hello");
 
-        Calculation obj1 = new Calculation();
-        Analysis obj2 = new Analysis();
+        Calculation obj1 = new Calculation(); //this object is to intiate the calculations
+        Analysis obj2 = new Analysis(obj1); //takes in the calculation object to do the analysis
 //        obj2.addExpense();
 //        obj2.deleteExpense();
         obj1.addExpense();
