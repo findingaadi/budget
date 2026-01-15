@@ -16,9 +16,17 @@ public class Calculation {
     }
 
     public void displayAllExpense() {
+        //edited to monthly expenses
         int j = 0;
+        double total = 0;
         for (Expense expense : kharcha) {
-            System.out.println(++j+")"+expense);
+            if (expense.getDate().getMonthValue() == LocalDate.now().getMonthValue()){
+                System.out.println(++j+")"+expense);
+                total += expense.getAmount();
+                System.out.println("Total expense for the month: "+total);
+            }
+
+
         }
     }
 

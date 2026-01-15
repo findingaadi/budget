@@ -29,4 +29,5 @@ public class Menu {
 //        obj2.dailyExpense();
 //        obj2.monthlyExpense();
     }
+
 }
