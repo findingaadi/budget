@@ -22,7 +22,6 @@ public class Analysis{
 
         for(Expense e: es.getKharcha()){
             if (e.getDate().equals(date)) {
-                System.out.println("in if statement");
                 dayTotalAmount += e.getAmount();
             }
         }
