@@ -37,6 +37,9 @@ public class Calculation {
         System.out.println("Amount?: ");
         double amt = input.nextDouble();
 
+        System.out.println("Date?");
+        LocalDate date = LocalDate.parse(input.nextLine());
+
         System.out.println("Please select the category:");
         System.out.println("1. Groceries");
         System.out.println("2. Nepal");
@@ -64,7 +67,7 @@ public class Calculation {
             default -> null;
         };
 
-        Expense Obj1 = new Expense(LocalDate.now(), e, desc, amt);
+        Expense Obj1 = new Expense(date, e, desc, amt);
         Expense Obj2 = new Expense(LocalDate.now(), e, "autoTest", 40.0);
         Expense Obj3 = new Expense(LocalDate.now(), e, "autoTest", 50.0);
         Expense Obj4 = new Expense(LocalDate.now(), e, "autoTest", 60.0);

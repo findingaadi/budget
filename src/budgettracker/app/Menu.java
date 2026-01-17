@@ -22,12 +22,8 @@ public class Menu {
         switch (i){
             case 1->obj1.addExpense();
             case 2->obj1.deleteExpense();
+            case 3->subMenu(scanner);
         }
-//        obj2.addExpense();
-//        obj2.deleteExpense();
-//        obj1.addExpense();
-//        obj2.dailyExpense();
-//        obj2.monthlyExpense();
     }
     public void subMenu(Scanner scanner){
         System.out.println("1. Get Daily Expense Report.");
