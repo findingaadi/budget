@@ -2,7 +2,7 @@ package budgettracker.service;
 
 import budgettracker.domain.Expense;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,13 +10,30 @@ import java.util.Scanner;
 
 public class Calculation implements Serializable {
 
-    ArrayList<Expense> kharcha = new ArrayList<>();
+    ArrayList<Expense> kharcha = new ArrayList<Expense>();
     Scanner input = new Scanner(System.in);
 
     public ArrayList<Expense> getKharcha(){
         return kharcha;
     }
 
+//    public Calculation(){
+////        this.kharcha = loadExpense();
+//
+//    }
+
+//    public ArrayList<Expense> loadExpense(){
+//        ArrayList<Expense> data_in = null;
+//        try{
+//            FileInputStream in = new FileInputStream("kharcha.dat");
+//            ObjectInputStream o_in = new ObjectInputStream(in);
+//
+//            data_in = (ArrayList<Expense>) o_in.readObject();
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        return data_in;
+//    }
     public void displayAllExpense() {
         //edited to monthly expenses
         int j = 0;
@@ -42,8 +59,9 @@ public class Calculation implements Serializable {
             System.out.println("Amount?: ");
             double amt = input.nextDouble();
 
-            System.out.println("Date?");
-            LocalDate date = LocalDate.parse(input.nextLine());
+            //to be worked on after the serializing issue
+//            System.out.println("Date?");
+//            LocalDate date
 
             System.out.println("Please select the category:");
             System.out.println("1. Groceries");
@@ -72,7 +90,7 @@ public class Calculation implements Serializable {
                 default -> null;
             };
 
-            Expense Obj1 = new Expense(date, e, desc, amt);
+            Expense Obj1 = new Expense(LocalDate.now(), e, desc, amt);
             Expense Obj2 = new Expense(LocalDate.now(), e, "autoTest", 40.0);
             Expense Obj3 = new Expense(LocalDate.now(), e, "autoTest", 50.0);
             Expense Obj4 = new Expense(LocalDate.now(), e, "autoTest", 60.0);
@@ -83,8 +101,10 @@ public class Calculation implements Serializable {
             kharcha.add(Obj4);
             kharcha.add(Obj5);
 
+            saveExpense(kharcha);
             displayAllExpense();
         }catch (Exception e){
+            e.printStackTrace();
             System.out.println("Something went wrong.");
         }
         }
@@ -100,6 +120,21 @@ public class Calculation implements Serializable {
             System.out.println("Something went wrong!");
         }
         displayAllExpense();
+    }
+
+    public void saveExpense(ArrayList<Expense> kharcha){
+        try{
+            FileOutputStream out = new FileOutputStream("kharcha.dat");
+            ObjectOutputStream o_out = new ObjectOutputStream(out);
+
+            o_out.writeObject(kharcha);
+        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+            System.out.println("file not found");
+        } catch (IOException e) {
+            System.out.println("file not found");
+            e.printStackTrace();
+        }
     }
 
 }
