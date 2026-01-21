@@ -1,9 +1,10 @@
 package budgettracker.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class Expense {
+public class Expense implements Serializable {
 
     private LocalDate date;
 

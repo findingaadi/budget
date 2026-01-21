@@ -17,23 +17,23 @@ public class Calculation implements Serializable {
         return kharcha;
     }
 
-//    public Calculation(){
-////        this.kharcha = loadExpense();
-//
-//    }
+    public Calculation(){
+       this.kharcha = loadExpense();
 
-//    public ArrayList<Expense> loadExpense(){
-//        ArrayList<Expense> data_in = null;
-//        try{
-//            FileInputStream in = new FileInputStream("kharcha.dat");
-//            ObjectInputStream o_in = new ObjectInputStream(in);
-//
-//            data_in = (ArrayList<Expense>) o_in.readObject();
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        return data_in;
-//    }
+    }
+
+    public ArrayList<Expense> loadExpense(){
+        ArrayList<Expense> data_in = null;
+        try{
+            FileInputStream in = new FileInputStream("kharcha.dat");
+            ObjectInputStream o_in = new ObjectInputStream(in);
+
+            data_in = (ArrayList<Expense>) o_in.readObject();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return data_in;
+    }
     public void displayAllExpense() {
         //edited to monthly expenses
         int j = 0;
