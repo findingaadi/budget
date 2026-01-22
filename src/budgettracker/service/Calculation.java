@@ -2,8 +2,11 @@ package budgettracker.service;
 
 import budgettracker.domain.Expense;
 
+import javax.swing.text.DateFormatter;
 import java.io.*;
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -50,6 +53,9 @@ public class Calculation implements Serializable {
     }
 
     public void addExpense(){
+
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         try {
 
 
@@ -59,9 +65,10 @@ public class Calculation implements Serializable {
             System.out.println("Amount?: ");
             double amt = input.nextDouble();
 
-            //to be worked on after the serializing issue
-//            System.out.println("Date?");
-//            LocalDate date
+
+            System.out.println("Date? (yyyy-MM-dd)");
+            LocalDate date = LocalDate.parse(input.next(),formater); //nextline wont work, as it only seeks the date
+
 
             System.out.println("Please select the category:");
             System.out.println("1. Groceries");
@@ -90,7 +97,7 @@ public class Calculation implements Serializable {
                 default -> null;
             };
 
-            Expense Obj1 = new Expense(LocalDate.now(), e, desc, amt);
+            Expense Obj1 = new Expense(date, e, desc, amt);
             Expense Obj2 = new Expense(LocalDate.now(), e, "autoTest", 40.0);
             Expense Obj3 = new Expense(LocalDate.now(), e, "autoTest", 50.0);
             Expense Obj4 = new Expense(LocalDate.now(), e, "autoTest", 60.0);
