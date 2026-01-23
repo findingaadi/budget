@@ -42,13 +42,11 @@ public class Calculation implements Serializable {
         int j = 0;
         double total = 0;
         for (Expense expense : kharcha) {
-            if (expense.getDate().getMonthValue() == LocalDate.now().getMonthValue()){
+            if (expense.getDate().getMonthValue() == LocalDate.now().getMonthValue() && expense.getDate().getYear() == LocalDate.now().getYear()){
                 System.out.println(++j+")"+expense);
                 total += expense.getAmount();
                 System.out.println("Total expense for the month: "+total);
             }
-
-
         }
     }
 
@@ -57,13 +55,11 @@ public class Calculation implements Serializable {
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         try {
-
-
             System.out.println("Description?: ");
             String desc = input.nextLine();
 
             System.out.println("Amount?: ");
-            double amt = input.nextDouble();
+            double amt = Double.parseDouble(input.nextLine());
 
 
             System.out.println("Date? (yyyy-MM-dd)");
@@ -82,7 +78,7 @@ public class Calculation implements Serializable {
             System.out.println("9. Miscellaneous");
             System.out.println("10. Savings");
 
-            int i = input.nextInt();
+            int i = Integer.parseInt(input.nextLine());
             Expense.Category e = switch (i) {
                 case 1 -> Expense.Category.Groceries;
                 case 2 -> Expense.Category.Nepal;
@@ -98,18 +94,15 @@ public class Calculation implements Serializable {
             };
 
             Expense Obj1 = new Expense(date, e, desc, amt);
-            Expense Obj2 = new Expense(LocalDate.now(), e, "autoTest", 40.0);
-            Expense Obj3 = new Expense(LocalDate.now(), e, "autoTest", 50.0);
-            Expense Obj4 = new Expense(LocalDate.now(), e, "autoTest", 60.0);
-            Expense Obj5 = new Expense(LocalDate.now(), e, "autoTest", 70.0);
             kharcha.add(Obj1);
-            kharcha.add(Obj2);
-            kharcha.add(Obj3);
-            kharcha.add(Obj4);
-            kharcha.add(Obj5);
-
             saveExpense(kharcha);
             displayAllExpense();
+            System.out.println("Want to add new transaction?");
+            String next_tran = input.nextLine();
+            if (next_tran.equals("Y") || next_tran.equals("y")){
+                addExpense();
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("Something went wrong.");
@@ -121,7 +114,7 @@ public class Calculation implements Serializable {
         displayAllExpense();
         int l =0;
         try{
-            l = input.nextInt();
+            l = Integer.parseInt(input.nextLine());
             kharcha.remove(l-1);
         } catch (Exception e) {
             System.out.println("Something went wrong!");
