@@ -50,7 +50,7 @@ public class Calculation implements Serializable {
         }
     }
 
-    public void addExpense(){
+    public void addOneExpense(){
 
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -78,6 +78,7 @@ public class Calculation implements Serializable {
             System.out.println("9. Miscellaneous");
             System.out.println("10. Savings");
 
+
             int i = Integer.parseInt(input.nextLine());
             Expense.Category e = switch (i) {
                 case 1 -> Expense.Category.Groceries;
@@ -96,12 +97,6 @@ public class Calculation implements Serializable {
             Expense Obj1 = new Expense(date, e, desc, amt);
             kharcha.add(Obj1);
             saveExpense(kharcha);
-            displayAllExpense();
-            System.out.println("Want to add new transaction?");
-            String next_tran = input.nextLine();
-            if (next_tran.equals("Y") || next_tran.equals("y")){
-                addExpense();
-            }
 
         }catch (Exception e){
             e.printStackTrace();
@@ -109,6 +104,18 @@ public class Calculation implements Serializable {
         }
         }
 
+        public void addExpense(){
+            while(true){
+                addOneExpense();
+                displayAllExpense();
+                System.out.println("Do you want to add another transaction? Enter Y for yes!");
+                String ans = input.nextLine();
+
+                if (!ans.equalsIgnoreCase("Y")){
+                    break;
+                }
+            }
+        }
     public void deleteExpense(){
         System.out.println("Which expense would you like to delete? ");
         displayAllExpense();
