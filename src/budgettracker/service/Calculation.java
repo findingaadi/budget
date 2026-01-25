@@ -63,7 +63,8 @@ public class Calculation implements Serializable {
 
 
             System.out.println("Date? (yyyy-MM-dd)");
-            LocalDate date = LocalDate.parse(input.next(),formater); //nextline wont work, as it only seeks the date
+            String input_date = input.nextLine();
+            LocalDate date = LocalDate.parse(input_date,formater); //nextline wont work, as it only seeks the date
 
 
             System.out.println("Please select the category:");
@@ -78,8 +79,8 @@ public class Calculation implements Serializable {
             System.out.println("9. Miscellaneous");
             System.out.println("10. Savings");
 
-
-            int i = Integer.parseInt(input.nextLine());
+            String input_category = input.nextLine();
+            int i = Integer.parseInt(input_category);
             Expense.Category e = switch (i) {
                 case 1 -> Expense.Category.Groceries;
                 case 2 -> Expense.Category.Nepal;
