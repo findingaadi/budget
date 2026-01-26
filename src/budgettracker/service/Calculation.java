@@ -62,9 +62,17 @@ public class Calculation implements Serializable {
             double amt = Double.parseDouble(input.nextLine());
 
 
-            System.out.println("Date? (yyyy-MM-dd)");
-            String input_date = input.nextLine();
-            LocalDate date = LocalDate.parse(input_date,formater); //nextline wont work, as it only seeks the date
+            System.out.println("Is the transaction from today? Y for yes.");
+            String input_today = input.nextLine();
+            LocalDate date = null;
+            if (input_today.equalsIgnoreCase("Y")){
+                date = LocalDate.now();
+            }else{
+                System.out.println("Please enter the date. (yyyy-MM-dd)");
+                String input_date = input.nextLine();
+                date = LocalDate.parse(input_date,formater); //nextline wont work, as it only seeks the date
+            }
+
 
 
             System.out.println("Please select the category:");
