@@ -37,7 +37,15 @@ public class Calculation implements Serializable {
         }
         return data_in;
     }
-    public void displayAllExpense() {
+
+    public void displayAllExpense(){
+        int j = 0;
+        for (Expense all_expense : kharcha){
+            System.out.println(++j+")"+all_expense);
+        }
+    }
+
+    public void displayCurrentMonthExpense() {
         //edited to monthly expenses
         int j = 0;
         double total = 0;
@@ -116,7 +124,7 @@ public class Calculation implements Serializable {
         public void addExpense(){
             while(true){
                 addOneExpense();
-                displayAllExpense();
+                displayCurrentMonthExpense();
                 System.out.println("Do you want to add another transaction? Enter Y for yes!");
                 String ans = input.nextLine();
 
@@ -126,8 +134,8 @@ public class Calculation implements Serializable {
             }
         }
     public void deleteExpense(){
-        System.out.println("Which expense would you like to delete? ");
         displayAllExpense();
+        System.out.println("Which expense would you like to delete? ");
         int l =0;
         try{
             l = Integer.parseInt(input.nextLine());
