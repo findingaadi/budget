@@ -26,16 +26,14 @@ public class Calculation implements Serializable {
     }
 
     public ArrayList<Expense> loadExpense(){
-        ArrayList<Expense> data_in = null;
         try{
             FileInputStream in = new FileInputStream("kharcha.dat");
             ObjectInputStream o_in = new ObjectInputStream(in);
 
-            data_in = (ArrayList<Expense>) o_in.readObject();
+            return (ArrayList<Expense>) o_in.readObject();
         }catch (Exception e){
-            e.printStackTrace();
+            return new ArrayList<>();
         }
-        return data_in;
     }
 
     public void displayAllExpense(){
@@ -81,39 +79,42 @@ public class Calculation implements Serializable {
                 date = LocalDate.parse(input_date,formater); //nextline wont work, as it only seeks the date
             }
 
+            int i =0;
 
+            while(i<1 || i>10){
+                System.out.println("Please select the category:");
+                System.out.println("1. Groceries");
+                System.out.println("2. Nepal");
+                System.out.println("3. Home Bills");
+                System.out.println("4. Credit Card");
+                System.out.println("5. Subscription");
+                System.out.println("6. Eating Out");
+                System.out.println("7. Shopping");
+                System.out.println("8. Fuel");
+                System.out.println("9. Miscellaneous");
+                System.out.println("10. Savings");
 
-            System.out.println("Please select the category:");
-            System.out.println("1. Groceries");
-            System.out.println("2. Nepal");
-            System.out.println("3. Home Bills");
-            System.out.println("4. Credit Card");
-            System.out.println("5. Subscription");
-            System.out.println("6. Eating Out");
-            System.out.println("7. Shopping");
-            System.out.println("8. Fuel");
-            System.out.println("9. Miscellaneous");
-            System.out.println("10. Savings");
+                i = Integer.parseInt(input.nextLine());
+            }
 
-            String input_category = input.nextLine();
-            int i = Integer.parseInt(input_category);
-            Expense.Category e = switch (i) {
-                case 1 -> Expense.Category.Groceries;
-                case 2 -> Expense.Category.Nepal;
-                case 3 -> Expense.Category.HomeBills;
-                case 4 -> Expense.Category.CreditCard;
-                case 5 -> Expense.Category.Subscription;
-                case 6 -> Expense.Category.EatingOut;
-                case 7 -> Expense.Category.Shopping;
-                case 8 -> Expense.Category.Fuel;
-                case 9 -> Expense.Category.Miscellaneous;
-                case 10 -> Expense.Category.Savings;
-                default -> null;
-            };
+                Expense.Category e = switch (i) {
+                    case 1 -> Expense.Category.Groceries;
+                    case 2 -> Expense.Category.Nepal;
+                    case 3 -> Expense.Category.HomeBills;
+                    case 4 -> Expense.Category.CreditCard;
+                    case 5 -> Expense.Category.Subscription;
+                    case 6 -> Expense.Category.EatingOut;
+                    case 7 -> Expense.Category.Shopping;
+                    case 8 -> Expense.Category.Fuel;
+                    case 9 -> Expense.Category.Miscellaneous;
+                    case 10 -> Expense.Category.Savings;
+                    default -> throw new IllegalStateException("Invalid category");
+                };
 
-            Expense Obj1 = new Expense(date, e, desc, amt);
-            kharcha.add(Obj1);
-            saveExpense(kharcha);
+                Expense Obj1 = new Expense(date, e, desc, amt);
+                kharcha.add(Obj1);
+                saveExpense(kharcha);
+
 
         }catch (Exception e){
             e.printStackTrace();
