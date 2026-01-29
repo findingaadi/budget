@@ -11,35 +11,42 @@ public class Menu {
     Analysis obj2 = new Analysis(obj1);//takes in the calculation object to do the analysis
 
     public void menu(Scanner scanner) {
+
+        int i = 0;
+        while (i < 1 || i > 3) {
         System.out.println("Welcome!");
         System.out.println("Please Select from the menu below.");
-
-
         System.out.println("1. Add an expense.");
         System.out.println("2. Delete an expense.");
         System.out.println("3. View Expense Analysis.");
-        int i = 0;
-        try {
-            i = scanner.nextInt();
-        } catch (Exception e) {
-            System.out.println("Something went wrong");
+
+            try {
+                i = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Something went wrong");
+            }
         }
 
-        switch (i) {
-            case 1 -> obj1.addExpense();
-            case 2 -> obj1.deleteExpense();
-            case 3 -> subMenu(scanner);
-        }
+            switch (i) {
+                case 1 -> obj1.addExpense();
+                case 2 -> obj1.deleteExpense();
+                case 3 -> subMenu(scanner);
+            }
+
     }
-    public void subMenu(Scanner scanner){
-        System.out.println("1. Get Daily Expense Report.");
-        System.out.println("2. Get Monthly Expense Report.");
 
+    public void subMenu(Scanner scanner){
         int input = 0;
-        try{
-            input = scanner.nextInt();
-        }catch(Exception e){
-            System.out.println("Something went wrong.");
+        while(input<1 || input>2) {
+            System.out.println("1. Get Daily Expense Report.");
+            System.out.println("2. Get Monthly Expense Report.");
+
+
+            try {
+                input = scanner.nextInt();
+            } catch (Exception e) {
+                System.out.println("Something went wrong.");
+            }
         }
 
         switch(input){
