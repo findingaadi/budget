@@ -37,7 +37,7 @@ public class Menu {
 
     public void subMenu(Scanner scanner){
         int input = 0;
-        while(input<1 || input>2) {
+        while(input<1 || input>3) {
             System.out.println("1. Get Daily Expense Report.");
             System.out.println("2. Get Monthly Expense Report.");
 
@@ -52,6 +52,7 @@ public class Menu {
         switch(input){
             case 1->obj2.dailyExpense();
             case 2->obj2.monthlyExpense();
+            case 3-> obj2.categoryExpense();
         }
     }
 
