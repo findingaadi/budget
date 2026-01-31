@@ -28,6 +28,10 @@ public class Analysis{
         System.out.println(dayTotalAmount);
     }
 
+//    public void dailyCategoryExpense(){
+//
+//    }
+
     public void monthlyExpense(){
         double monthlyTotalAmount = 0.0;
         System.out.println("Please enter the year:");
@@ -44,11 +48,11 @@ public class Analysis{
         System.out.println(monthlyTotalAmount);
     }
 
-    public void categoryExpense(){
+    public Expense.Category selectCategory() {
         System.out.println("Please select the category.");
-        int k =0;
-
-        while(k<1 || k>10){
+        int k = 0;
+        Expense.Category e = null;
+        while (k < 1 || k > 10) {
             System.out.println("Please select the category:");
             System.out.println("1. Groceries");
             System.out.println("2. Nepal");
@@ -62,23 +66,30 @@ public class Analysis{
             System.out.println("10. Savings");
 
             k = Integer.parseInt(input.nextLine());
-        }
-        Expense.Category e = switch (k) {
-            case 1 -> Expense.Category.Groceries;
-            case 2 -> Expense.Category.Nepal;
-            case 3 -> Expense.Category.HomeBills;
-            case 4 -> Expense.Category.CreditCard;
-            case 5 -> Expense.Category.Subscription;
-            case 6 -> Expense.Category.EatingOut;
-            case 7 -> Expense.Category.Shopping;
-            case 8 -> Expense.Category.Fuel;
-            case 9 -> Expense.Category.Miscellaneous;
-            case 10 -> Expense.Category.Savings;
-            default -> throw new IllegalStateException("Invalid category");
-        };
 
+            e = switch (k) {
+                case 1 -> Expense.Category.Groceries;
+                case 2 -> Expense.Category.Nepal;
+                case 3 -> Expense.Category.HomeBills;
+                case 4 -> Expense.Category.CreditCard;
+                case 5 -> Expense.Category.Subscription;
+                case 6 -> Expense.Category.EatingOut;
+                case 7 -> Expense.Category.Shopping;
+                case 8 -> Expense.Category.Fuel;
+                case 9 -> Expense.Category.Miscellaneous;
+                case 10 -> Expense.Category.Savings;
+                default -> throw new IllegalStateException("Invalid category");
+
+            };
+
+        }
+        return e;
+    }
+
+    public void categoryExpense(){
+        Expense.Category a = selectCategory();
         for(Expense category_expense: es.getKharcha()){
-            if(category_expense.getCategory() == e){
+            if(category_expense.getCategory() == a){
                 System.out.print(category_expense);
             }
         }
