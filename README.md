@@ -1,20 +1,21 @@
 # Budget Analysis Application
 
-This is a personal budget analysis application built to learn Java and Spring Boot while solving a real problem.
+This is a personal budget analysis application built to replace my Budget tracking Excel sheet.
 
 The app helps track expenses, analyse spending patterns, and compare monthly spending against income.
 
+![budget_tracker_excel.jpeg](src/budgettracker/images/budget_tracker_excel.jpeg)
 ## Purpose
 
 I previously tracked expenses manually using Excel.
-This project moves that process into a backend application that can:
+This project moves that process into an application that can:
 
 - Store expenses
 - Group spending by date and category
 - Calculate monthly totals
 - Provide a clear view of where money is spent
 
-The project is designed to grow in complexity over time.
+The repository is an MVP console based project which is designed to grow in complexity over time.
 
 ## Current Features
 
@@ -40,7 +41,6 @@ The project is designed to grow in complexity over time.
 ## Tech Stack
 
 - Java
-- Spring Boot
 
 ## Why This Project
 
@@ -51,4 +51,5 @@ The project is designed to grow in complexity over time.
 
 ## Status
 
-This project is under active development and is being expanded as part of learning Java and Spring Boot.
+This project is under active development and is being expanded as part of learning. I am implementing my budget tracker
+from excel in a Java console application, then eventually web application with Spring Boot framework.
